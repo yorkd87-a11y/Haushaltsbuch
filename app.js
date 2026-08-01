@@ -1,4 +1,4 @@
-const APP_VERSION='1.7.1';
+const APP_VERSION='1.7.2';
 const euro=new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'});
 const dateLabel=new Intl.DateTimeFormat('de-DE',{day:'2-digit',month:'short',year:'numeric'});
 const today=()=>new Date().toISOString().slice(0,10);
