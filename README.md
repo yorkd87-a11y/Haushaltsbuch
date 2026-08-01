@@ -10,9 +10,14 @@ Die Datei `index.html` in einem Browser öffnen. Für die Installation auf einem
 
 Unterhalb von 680 px Breite schaltet die App auf ein eigenes Layout um:
 
-- Untere Navigationsleiste mit allen fünf Bereichen, dazu ein runder Knopf unten rechts für eine neue Ausgabe.
-- Kontostand und Tagesbudget bilden oben eine zusammenhängende Karte, die Budgettöpfe darunter eine kompakte Liste.
-- Die Abschnitte auf Übersicht und Einstellungen sind eingeklappt und lassen sich einzeln öffnen; ab Tablet-Breite stehen sie dauerhaft offen.
+- Untere Navigationsleiste mit allen fünf Bereichen, dazu ein schwebender Plus-Knopf unten rechts.
+- Der Plus-Knopf klappt die Shortcuts auf, darunter steht **Andere Ausgabe** für die manuelle Eingabe. Das Eingabefenster schwebt danach von unten herein. Auf dem Desktop bleiben die Shortcuts als sichtbare Reihe auf der Übersicht.
+- Auf der Übersicht ist der blaue Block der Kopf der Seite: Datum, „Guthaben für Lebenshaltung“ als große Zahl mit einem Statusbalken darunter (voll bis leer, je nach Budgetziel des Lebenshaltungskontos), darunter mit Abstand das Tagesbudget. Die Topbar mit dem Seitentitel entfällt dort; auf allen anderen Seiten bleibt sie.
+- Die Rechnung hinter dem Tagesbudget (Tage × 30 € abzüglich Ausgaben) steht nur noch im Tooltip des Blocks.
+- Ist ein Backup fällig (14 Tage oder älter, oder noch nie gesichert), erscheint oben rechts im Kopf ein Ausrufezeichen. Ein Klick öffnet die Optionen „Backup laden“ und „Backup speichern“.
+- Der restliche Übersicht-Body ist ein wischbarer Slider mit acht Folien: Letzte Buchungen (10, neueste oben), Budget im Blick (Töpfe), Ausgaben nach Tags, Ausgaben nach Kategorie, Ausgabenverlauf (Balken je Tag im Monat), Sparziele, Monatsabschluss und Vergangene Gehaltszeiträume. Punkte darunter zeigen die Position und sind antippbar. Auf dem Desktop bleibt stattdessen die bekannte Kachel-/Panel-Ansicht.
+- Die Übersicht ist dabei ein starrer Bildschirm: Kopf und untere Navigation stehen fest, die Seite selbst lässt sich nicht scrollen. Nur der Slider ist wischbar; hat eine einzelne Folie mehr Inhalt als Platz (z. B. viele Buchungen), scrollt nur diese Folie intern. Alle anderen Seiten (Buchungen, Fixkosten, Kategorien, Einstellungen) scrollen weiterhin normal.
+- Die Abschnitte auf Einstellungen sind eingeklappt und lassen sich einzeln öffnen; ab Tablet-Breite stehen sie dauerhaft offen.
 - Die Filter der Buchungsliste liegen hinter dem Knopf **Filter**, der die Anzahl aktiver Filter anzeigt.
 - Buchungen werden über **⋯** bearbeitet; gelöscht wird im Bearbeiten-Dialog, damit ein Fehltipp keine Buchung vernichtet.
 - Dialoge erscheinen als Bottom-Sheet und berücksichtigen Notch und Home-Indikator.
