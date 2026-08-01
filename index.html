@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0d5bd7" />
+    <meta name="description" content="Dein persönliches Haushaltsbuch." />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Mein Budget</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#dashboard" aria-label="Mein Budget Startseite"><span class="brand-mark">€</span><span>Mein<br /><b>Budget</b></span></a>
+        <nav class="nav" aria-label="Hauptnavigation">
+          <button class="nav-link active" data-view="dashboard">▦ <span>Übersicht</span></button>
+          <button class="nav-link" data-view="transactions">↕ <span>Buchungen</span></button>
+          <button class="nav-link" data-view="recurring">↻ <span>Fixkosten</span></button>
+          <button class="nav-link" data-view="categories">◇ <span>Kategorien</span></button>
+          <button class="nav-link" data-view="settings">⚙ <span>Einstellungen</span></button>
+        </nav>
+        <div class="sidebar-foot"><span class="dot"></span> Daten werden auf diesem Gerät gespeichert<br /><span id="appVersion">Version wird geladen</span></div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div><p class="eyebrow" id="todayLabel"></p><h1 id="pageTitle">Deine Übersicht</h1></div>
+          <button class="income-button" id="openTransactionTop">＋ Ausgabe hinzufügen</button>
+        </header>
+
+        <section id="dashboard" class="view active">
+          <div class="balance-hero">
+            <div><p>Lebenshaltung verfügbar</p><strong id="totalBalance">0,00 €</strong><span id="balanceNote">Rest deines Lebenshaltungskontos</span></div>
+          </div>
+          <section class="daily-budget" id="dailyBudget" aria-label="Fortlaufendes Tagesbudget">
+            <div class="daily-icon">◷</div>
+            <div class="daily-main"><p class="eyebrow">Lebenshaltung · 30 € pro Tag</p><h2 id="dailyBudgetTitle">Tagesbudget wird berechnet</h2><p id="dailyBudgetExplanation" class="daily-explanation"></p></div>
+            <div class="daily-value"><strong id="dailyBudgetAmount">0,00 €</strong><span id="dailyBudgetDays">0 Tage</span></div>
+          </section>
+          <div id="budgetWarnings" class="budget-warnings"></div>
+          <section class="section-head"><div><p class="eyebrow">Schnelleingabe</p><h2>Ausgabe hinzufügen</h2></div><button class="text-button" id="openAllocation">Verteilung anpassen →</button></section>
+          <div id="dashboardShortcuts" class="dashboard-shortcuts" aria-label="Ausgaben-Shortcuts"></div>
+          <section class="section-head budget-heading"><div><p class="eyebrow">Deine Töpfe</p><h2>Budget im Blick</h2></div></section>
+          <div class="account-grid" id="accountGrid"></div>
+          <div class="dashboard-lower">
+            <section class="panel activity"><div class="panel-head"><div><p class="eyebrow">Zuletzt</p><h2>Bewegungen</h2></div><button class="text-button" data-view="transactions">Alle ansehen →</button></div><div id="recentTransactions" class="transaction-list"></div></section>
+            <section class="panel spending"><div class="panel-head"><div><p class="eyebrow">Ausgaben</p><h2>Nach Kategorie</h2></div><span id="spentThisMonth">0,00 €</span></div><div id="categoryChart" class="category-chart"></div></section>
+          </div>
+          <div class="dashboard-lower dashboard-extra"><section class="panel"><div class="panel-head"><div><p class="eyebrow">Dieser Budgetzeitraum</p><h2>Monatsabschluss</h2></div></div><div id="periodSummary" class="summary-grid"></div></section><section class="panel"><div class="panel-head"><div><p class="eyebrow">Wofür du sparst</p><h2>Deine Ziele</h2></div><button class="text-button" data-view="settings">Verwalten →</button></div><div id="dashboardGoals" class="goal-list"></div></section></div>
+          <section class="panel cycle-panel"><div class="panel-head"><div><p class="eyebrow">Vergleich</p><h2>Vergangene Gehaltszeiträume</h2></div></div><div id="budgetHistory" class="history-list"></div></section>
+        </section>
+
+        <section id="transactions" class="view"><div class="content-toolbar"><div><p class="eyebrow">Alle Einträge</p><h2>Buchungen</h2></div><div class="toolbar-actions"><button class="secondary-button" id="openIncome">＋ Gehalt hinzufügen</button><button class="primary-button" id="openTransaction">＋ Ausgabe hinzufügen</button></div></div><div class="filters"><input id="filterSearch" type="search" placeholder="Suche nach Name oder Notiz" /><select id="filterAccount"><option value="all">Alle Konten</option></select><select id="filterCategory"><option value="all">Alle Kategorien</option></select><select id="filterType"><option value="all">Alle Buchungen</option><option value="expense">Ausgaben</option><option value="income">Einnahmen</option></select><input id="filterFrom" type="date" title="Von" /><input id="filterTo" type="date" title="Bis" /></div><div id="transactionTable" class="transaction-list full-list"></div></section>
+        <section id="recurring" class="view"><div class="content-toolbar"><div><p class="eyebrow">Jeden Monat</p><h2>Fixkosten</h2></div><button class="primary-button" id="openRecurring">＋ Fixkosten anlegen</button></div><p class="view-intro">Fixkosten werden am Fälligkeitstag automatisch gebucht und können jederzeit geändert werden.</p><div id="recurringList" class="recurring-list"></div><div class="content-toolbar recurring-income-head"><div><p class="eyebrow">Zusätzliche Einnahmen</p><h2>Regelmäßige Einnahmen</h2></div><button class="secondary-button" id="openRecurringIncome">＋ Einnahme anlegen</button></div><div id="recurringIncomeList" class="recurring-list"></div></section>
+        <section id="categories" class="view"><div class="content-toolbar"><div><p class="eyebrow">Ordnung schaffen</p><h2>Kategorien</h2></div><button class="primary-button" id="openCategory">＋ Kategorie anlegen</button></div><div id="categoryList" class="category-list"></div></section>
+        <section id="settings" class="view"><div class="content-toolbar"><div><p class="eyebrow">Grundlagen</p><h2>Einstellungen</h2></div></div><div class="settings-grid"><section class="panel"><p class="eyebrow">Geld aufteilen</p><h2>Verteilungsregeln</h2><p class="view-intro">Diese Beträge werden bei einem Gehaltseingang der Reihe nach gefüllt.</p><div id="allocationSettings"></div><button class="primary-button" id="saveAllocation">Änderungen speichern</button></section><section class="panel"><div class="panel-head"><div><p class="eyebrow">Eigene Töpfe</p><h2>Konten verwalten</h2></div><button class="text-button" id="openAccount">＋ Hinzufügen</button></div><div id="accountSettings" class="shortcut-list"></div></section><section class="panel"><div class="panel-head"><div><p class="eyebrow">Sparziele</p><h2>Ziele verwalten</h2></div><button class="text-button" id="openGoal">＋ Hinzufügen</button></div><div id="goalSettings" class="goal-list"></div></section><section class="panel"><div class="panel-head"><div><p class="eyebrow">Schnelleingabe</p><h2>Shortcuts verwalten</h2></div><button class="text-button" id="openShortcut">＋ Hinzufügen</button></div><p class="view-intro">Lege eigene Ausgaben-Shortcuts mit Kategorie und Konto an.</p><div id="shortcutList" class="shortcut-list"></div></section><section class="panel"><p class="eyebrow">Deine Daten</p><h2>Datensicherung</h2><p class="view-intro">Exportiere deine Daten als Backup oder als CSV für Excel. Eine Anmeldung für Geräte-Synchronisierung kann später ergänzt werden.</p><div class="backup-actions"><button class="secondary-button" id="exportCsv">CSV exportieren</button><button class="secondary-button" id="exportBackup">Backup speichern</button><label class="secondary-button">Backup laden<input id="importBackup" type="file" accept="application/json" hidden /></label><button class="secondary-button" id="resetData">Beispieldaten zurücksetzen</button></div></section></div></section>
+      </main>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Mobile Navigation"><button class="active" data-view="dashboard">▦<span>Übersicht</span></button><button data-view="transactions">↕<span>Buchungen</span></button><button data-view="recurring">↻<span>Fixkosten</span></button><button data-view="settings">⚙<span>Mehr</span></button></nav>
+
+    <dialog id="incomeDialog"><form id="incomeForm" method="dialog" class="dialog-form"><button class="close" type="button" data-close>×</button><p class="eyebrow">Neuer Eingang</p><h2>Gehalt hinzufügen</h2><p class="view-intro">Der Betrag wird nach deinen Regeln auf die Konten verteilt.</p><label>Betrag <input required name="amount" type="number" min="0.01" step="0.01" placeholder="z. B. 2.530,00" /></label><label>Datum <input required name="date" type="date" /></label><label>Notiz <input name="note" type="text" placeholder="z. B. August-Gehalt" /></label><button class="primary-button" type="submit">Gehalt verteilen</button></form></dialog>
+    <dialog id="transactionDialog"><form id="transactionForm" method="dialog" class="dialog-form"><button class="close" type="button" data-close>×</button><p class="eyebrow">Neue Buchung</p><h2>Ausgabe hinzufügen</h2><div class="expense-shortcuts" id="shortcutButtons" aria-label="Schnellauswahl"></div><label>Was wurde bezahlt? <input required name="name" type="text" placeholder="z. B. Wocheneinkauf" /></label><div class="form-row"><label>Betrag <input required name="amount" type="number" min="0.01" step="0.01" /></label><label>Datum <input required name="date" type="date" /></label></div><label>Vom Konto <select required name="account" id="transactionAccount"></select></label><label>Kategorie <select required name="category" id="transactionCategory"></select></label><label>Notiz <input name="note" type="text" placeholder="Optional" /></label><label>Beleg <input name="receipt" type="file" accept="image/*" /></label><button class="primary-button" type="submit">Ausgabe speichern</button></form></dialog>
+    <dialog id="recurringDialog"><form id="recurringForm" method="dialog" class="dialog-form"><button class="close" type="button" data-close>×</button><p class="eyebrow">Wiederkehrend</p><h2>Fixkosten anlegen</h2><label>Name <input required name="name" type="text" placeholder="z. B. Miete" /></label><div class="form-row"><label>Betrag <input required name="amount" type="number" min="0.01" step="0.01" /></label><label>Fälligkeitstag <input required name="day" type="number" min="1" max="31" /></label></div><label>Kategorie <select required name="category" id="recurringCategory"></select></label><button class="primary-button" type="submit">Fixkosten speichern</button></form></dialog>
+    <dialog id="categoryDialog"><form id="categoryForm" method="dialog" class="dialog-form"><button class="close" type="button" data-close>×</button><p class="eyebrow">Neue Kategorie</p><h2>Kategorie anlegen</h2><label>Name <input required name="name" type="text" placeholder="z. B. Gesundheit" /></label><div class="form-row"><label>Symbol <input required name="icon" type="text" maxlength="2" placeholder="♥" /></label><label>Farbe <input required name="color" type="color" value="#0d5bd7" /></label></div><button class="primary-button" type="submit">Kategorie speichern</button></form></dialog>
+    <dialog id="shortcutDialog"><form id="shortcutForm" method="dialog" class="dialog-form"><button class="close" type="button" data-close>×</button><p class="eyebrow">Schnellauswahl</p><h2 id="shortcutDialogTitle">Shortcut anlegen</h2><label>Name <input required name="name" type="text" placeholder="z. B. Apotheke" /></label><label>Symbol <input required name="icon" type="text" maxlength="2" placeholder="💊" /></label><label>Standardkonto <select required name="account" id="shortcutAccount"></select></label><label>Kategorie <select required name="category" id="shortcutCategory"></select></label><button class="primary-button" type="submit">Shortcut speichern</button></form></dialog>
+    <dialog id="monthlyBudgetDialog"><div class="dialog-form"><p class="eyebrow">Monatsabschluss</p><h2>Dein Tagesbudget hat einen Rest</h2><p id="monthlyBudgetText" class="view-intro"></p><div class="monthly-actions"><button class="primary-button" data-rollover="carry">In den neuen Monat übertragen</button><button class="secondary-button" data-rollover="save">Zum Sparen verschieben</button><button class="secondary-button" data-rollover="reserve">Als Reserve einlagern</button></div></div></dialog>
+    <dialog id="accountDialog"><form id="accountForm" method="dialog" class="dialog-form"><button class="close" type="button" data-close>×</button><p class="eyebrow">Eigener Topf</p><h2 id="accountDialogTitle">Konto anlegen</h2><label>Name <input required name="name" type="text" placeholder="z. B. Urlaub" /></label><div class="form-row"><label>Symbol <input required name="icon" type="text" maxlength="2" placeholder="☀" /></label><label>Farbe <input required name="color" type="color" value="#174a93" /></label></div><label>Budgetziel <input required name="target" type="number" min="0" step="1" value="0" /></label><button class="primary-button" type="submit">Konto speichern</button></form></dialog>
+    <dialog id="goalDialog"><form id="goalForm" method="dialog" class="dialog-form"><button class="close" type="button" data-close>×</button><p class="eyebrow">Sparziel</p><h2 id="goalDialogTitle">Ziel anlegen</h2><label>Wofür sparst du? <input required name="name" type="text" placeholder="z. B. Waschmaschine" /></label><div class="form-row"><label>Zielbetrag <input required name="target" type="number" min="1" step="1" /></label><label>Aktuell gespart <input required name="current" type="number" min="0" step="1" value="0" /></label></div><label>Symbol <input required name="icon" type="text" maxlength="2" value="◎" /></label><button class="primary-button" type="submit">Ziel speichern</button></form></dialog>
+    <dialog id="recurringIncomeDialog"><form id="recurringIncomeForm" method="dialog" class="dialog-form"><button class="close" type="button" data-close>×</button><p class="eyebrow">Regelmäßige Einnahme</p><h2 id="recurringIncomeDialogTitle">Einnahme anlegen</h2><label>Name <input required name="name" type="text" placeholder="z. B. Nebenjob" /></label><div class="form-row"><label>Betrag <input required name="amount" type="number" min="0.01" step="0.01" /></label><label>Tag <input required name="day" type="number" min="1" max="31" /></label></div><label>Auf Konto <select required name="account" id="recurringIncomeAccount"></select></label><button class="primary-button" type="submit">Einnahme speichern</button></form></dialog>
+    <dialog id="receiptDialog"><div class="dialog-form"><button class="close" type="button" data-close>×</button><p class="eyebrow">Gespeicherter Beleg</p><img id="receiptPreview" alt="Beleg" class="receipt-preview" /></div></dialog>
+    <div id="toast" role="status"></div>
+    <aside id="updateNotice" class="update-notice" hidden><div><strong>Neue App-Version verfügbar</strong><span id="updateVersionText"></span></div><button id="runUpdate" class="primary-button">Jetzt aktualisieren</button></aside>
+    <script src="app.js"></script>
+  </body>
+</html>
