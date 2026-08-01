@@ -6,6 +6,19 @@ Eine lokale, mobile Haushaltsbuch-App mit automatischer Gehaltsverteilung, Budge
 
 Die Datei `index.html` in einem Browser öffnen. Für die Installation auf einem Smartphone sollte die App später über GitHub Pages oder einen anderen HTTPS-Webhost bereitgestellt werden.
 
+## Bedienung am Smartphone
+
+Unterhalb von 680 px Breite schaltet die App auf ein eigenes Layout um:
+
+- Untere Navigationsleiste mit allen fünf Bereichen, dazu ein runder Knopf unten rechts für eine neue Ausgabe.
+- Kontostand und Tagesbudget bilden oben eine zusammenhängende Karte, die Budgettöpfe darunter eine kompakte Liste.
+- Die Abschnitte auf Übersicht und Einstellungen sind eingeklappt und lassen sich einzeln öffnen; ab Tablet-Breite stehen sie dauerhaft offen.
+- Die Filter der Buchungsliste liegen hinter dem Knopf **Filter**, der die Anzahl aktiver Filter anzeigt.
+- Buchungen werden über **⋯** bearbeitet; gelöscht wird im Bearbeiten-Dialog, damit ein Fehltipp keine Buchung vernichtet.
+- Dialoge erscheinen als Bottom-Sheet und berücksichtigen Notch und Home-Indikator.
+
+Alle Regeln dazu stehen gesammelt am Ende von `styles.css` im Abschnitt `MOBILANSICHT`.
+
 ## Speicherung
 
 Alle Daten werden in dieser ersten Version ausschließlich im Browser gespeichert. Sie verlassen das Gerät nicht. Eine Anmeldung und Synchronisierung können später ergänzt werden.
