@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#0d5bd7" />
     <meta name="description" content="Dein persönliches Haushaltsbuch." />
-    <link rel="manifest" href="manifest.webmanifest?v=1.14.2" />
-    <link rel="apple-touch-icon" href="budget-app-icon.jpg?v=1.14.2" />
-    <link rel="stylesheet" href="styles.css?v=1.14.2" />
+    <link rel="manifest" href="manifest.webmanifest?v=1.14.3" />
+    <link rel="apple-touch-icon" href="budget-app-icon.jpg?v=1.14.3" />
+    <link rel="stylesheet" href="styles.css?v=1.14.3" />
     <title>Mein Budget</title>
   </head>
   <body class="view-dashboard">
@@ -94,12 +94,13 @@
     <dialog id="settingsInfoDialog" class="settings-info-dialog"><div class="settings-info-content"><button class="close" type="button" data-close aria-label="Info schließen">×</button><p class="eyebrow">Kurz erklärt</p><h2 id="settingsInfoTitle"></h2><p id="settingsInfoText" class="view-intro"></p></div></dialog>
     <dialog id="tutorialDialog" class="tutorial-dialog"><form id="tutorialForm" class="tutorial-content"><button id="skipTutorial" class="close" type="button" aria-label="Einführung überspringen">×</button><p class="eyebrow" id="tutorialStepLabel"></p><div class="tutorial-symbol" id="tutorialSymbol"></div><h2 id="tutorialTitle"></h2><p id="tutorialText" class="view-intro"></p><div id="tutorialFields" class="tutorial-fields"></div><div class="tutorial-dots" id="tutorialDots" aria-hidden="true"></div><button id="tutorialPrimary" class="primary-button" type="submit"></button><button id="tutorialSecondary" class="text-button" type="button">Diesen Schritt überspringen</button></form></dialog>
     <dialog id="tutorialInviteDialog" class="tutorial-invite-dialog"><div class="tutorial-invite-content"><div class="tutorial-symbol">✦</div><p class="eyebrow">Erste Schritte</p><h2>Möchtest du die Einführung starten?</h2><p class="view-intro">Sie hilft dir beim ersten Gehalt, Fixkosten und einer Schnellwahl.</p><div><button id="startTutorialInvite" class="primary-button" type="button">Ja, Einführung starten</button><button id="declineTutorialInvite" class="secondary-button" type="button">Nein, später selbst entdecken</button></div></div></dialog>
+    <dialog id="pushReminderInviteDialog" class="tutorial-invite-dialog"><div class="tutorial-invite-content"><div class="tutorial-symbol">🔔</div><p class="eyebrow">Kleine Erinnerung</p><h2>Möchtest du abends an deine Ausgaben erinnert werden?</h2><p class="view-intro">Die Erinnerung kommt als Push-Nachricht auf dieses Gerät. Uhrzeit und Text kannst du jederzeit unter Mehr ändern.</p><div><button id="activatePushReminderInvite" class="primary-button" type="button">Ja, Erinnerungen aktivieren</button><button id="delayPushReminderInvite" class="secondary-button" type="button">Jetzt nicht</button></div></div></dialog>
     <div id="toast" role="status"></div>
     <div id="backupReminder" class="hero-alert-panel" hidden></div>
     <aside id="updateNotice" class="update-notice" hidden><div><strong>Neue App-Version verfügbar</strong><span id="updateVersionText"></span></div><button id="runUpdate" class="primary-button">Jetzt aktualisieren</button></aside>
     <aside id="installNotice" class="install-notice" hidden><div><strong>App zum Startbildschirm hinzufügen</strong><span>Öffne das Teilen- oder Browsermenü und wähle „Zum Home-Bildschirm“ oder „App installieren“.</span></div><button id="closeInstallNotice" class="notice-close" type="button" aria-label="Hinweis schließen" title="Hinweis schließen">×</button></aside>
-    <script src="firebase-push-config.js?v=1.14.2"></script>
-    <script src="app.js?v=1.14.2"></script>
-    <script type="module" src="firebase-push.js?v=1.14.2"></script>
+    <script src="firebase-push-config.js?v=1.14.3"></script>
+    <script src="app.js?v=1.14.3"></script>
+    <script type="module" src="firebase-push.js?v=1.14.3"></script>
   </body>
 </html>
