@@ -1,8 +1,8 @@
-const CACHE = 'mein-budget-v41';
+const CACHE = 'mein-budget-v43';
 const FILES = [
-  './', './index.html', './styles.css?v=1.14.3', './app.js?v=1.14.3',
-  './firebase-push-config.js?v=1.14.3', './firebase-push.js?v=1.14.3',
-  './manifest.webmanifest?v=1.14.3', './budget-app-icon.jpg?v=1.14.3'
+  './', './index.html', './styles.css?v=1.14.5', './app.js?v=1.14.5',
+  './firebase-push-config.js?v=1.14.5', './firebase-push.js?v=1.14.5',
+  './manifest.webmanifest?v=1.14.5', './budget-app-icon.jpg?v=1.14.5'
 ];
 
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES)).then(() => self.skipWaiting())));
