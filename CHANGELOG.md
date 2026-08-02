@@ -1,5 +1,14 @@
 # Changelog – Mein Budget
 
+## Version 1.14.6 · 2. August 2026
+
+### Umbuchungen
+
+- Auf der Buchungsseite gibt es jetzt eine eigene Aktion **Umbuchung**.
+- Geld kann zwischen Budgettöpfen verschoben werden.
+- Geld kann auch zwischen Zahlkonten verschoben werden, ohne Tagesbudget und Auswertungen als Ausgabe zu verfälschen.
+- Umbuchungen werden als gekoppelte Bewegungen gespeichert und können gemeinsam gelöscht werden.
+
 ## Version 1.14.5 · 2. August 2026
 
 ### Einnahmen ohne Gehaltsverteilung
